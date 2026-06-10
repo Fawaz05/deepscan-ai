@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Node.js
+node_modules/
+.next/
+out/
+.npm
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# TensorFlow / ML
+*.h5
+!backend/models/**/model.weights.h5
+*.keras
+!backend/models/**/*.keras
+logs/
+tensorboard/
+checkpoints/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build outputs
+frontend/build/
+backend/reports/*.json
+
+# Archives (large model zips — keep locally)
+# backend/model_finetuned.keras.zip

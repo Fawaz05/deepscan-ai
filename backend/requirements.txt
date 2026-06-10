@@ -1,0 +1,42 @@
+# DeepScan AI — Production Dependencies (Python 3.10–3.13)
+# For best TensorFlow compatibility, use Python 3.10 or 3.11 in production.
+
+# API
+fastapi>=0.111.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+aiofiles>=23.2.1
+httpx>=0.27.0
+slowapi>=0.1.9
+pydantic>=2.7.1
+
+# Image / ML core
+Pillow>=10.4.0
+numpy>=1.26.0,<2.2.0
+opencv-python-headless>=4.10.0.84
+scipy>=1.13.0
+scikit-learn>=1.4.2
+matplotlib>=3.8.4
+
+# Deep Learning
+tensorflow>=2.16.0
+# keras is bundled with tensorflow 2.16+
+
+# Vision-Language (optional BLIP)
+transformers>=4.41.0
+torch>=2.3.0
+torchvision>=0.18.0
+huggingface-hub>=0.23.0
+
+# LLM explanations (optional)
+anthropic>=0.25.0
+
+# Utilities
+requests>=2.31.0
+beautifulsoup4>=4.12.3
+python-dotenv>=1.0.1
+
+# Testing
+pytest>=8.2.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0
