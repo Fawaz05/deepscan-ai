@@ -16,7 +16,7 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
 
 from api.v1.routes import router as v1_router
-from config import API_PREFIX, CORS_ORIGINS, LOG_LEVEL, RATE_LIMIT
+from config import API_PREFIX, CORS_ORIGINS, LOG_LEVEL, PRELOAD_MODEL, RATE_LIMIT
 from services.model_loader import load_model
 
 logging.basicConfig(
@@ -31,11 +31,14 @@ limiter = Limiter(key_func=get_remote_address, default_limits=[RATE_LIMIT])
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting DeepScan AI backend...")
-    try:
-        load_model()
-        logger.info("Model pre-loaded successfully.")
-    except Exception as exc:
-        logger.error("Model pre-load failed (will retry on first request): %s", exc)
+    if PRELOAD_MODEL:
+        try:
+            load_model()
+            logger.info("Model pre-loaded successfully.")
+        except Exception as exc:
+            logger.error("Model pre-load failed (will retry on first request): %s", exc)
+    else:
+        logger.info("Model pre-load skipped (PRELOAD_MODEL=false). Will load on first request.")
     yield
     logger.info("Shutting down DeepScan AI backend.")
 

@@ -17,6 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent
 MODEL_PATH = os.environ.get("MODEL_PATH", str(BASE_DIR / "models" / "model_finetuned_keras"))
 USE_BLIP = os.environ.get("USE_BLIP", "false").lower() == "true"
 USE_GRADCAM = os.environ.get("USE_GRADCAM", "true").lower() == "true"
+PRELOAD_MODEL = os.environ.get("PRELOAD_MODEL", "true").lower() == "true"
 
 # Storage
 REPORTS_DIR = os.environ.get("REPORTS_DIR", str(BASE_DIR / "reports"))
